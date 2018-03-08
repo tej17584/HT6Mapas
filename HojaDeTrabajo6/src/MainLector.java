@@ -23,6 +23,8 @@ public class MainLector {
       File archivo = null;
       FileReader fr = null;
       BufferedReader br = null;
+      Map<String,String> miHash;
+      MapFactory miFC= new MapFactory();
 Scanner entrada = new Scanner(System.in);
       try {
          // Apertura del fichero y creacion de BufferedReader para poder
@@ -72,23 +74,20 @@ Scanner entrada = new Scanner(System.in);
         try{
             
             if(opcion1==1){
-            System.out.println("Selecciono Hasmap como implementacion"
-                    + ""); 
-                
+            
+            miHash=miFC.getImplementacion(opcion1);
                 
                 
             }
             if(opcion1==2){
-            System.out.println("Selecciono Treemap como implementacion"
-                    + "");    
                 
+               miHash=miFC.getImplementacion(opcion1); 
                 
                 
             }
             if(opcion1==3){
-            System.out.println("Selecciono LinkedHasmap como implementacion"
-                    + "");    
-                
+             
+              miHash=miFC.getImplementacion(opcion1);  
                 
                 
             }
