@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -39,6 +41,8 @@ public class MainLector {
              Value=linea.substring(posicion+1, linea.length());
              
          }
+         
+     
            
          
         

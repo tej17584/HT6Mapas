@@ -6,8 +6,11 @@
 
 /**
  *
- * @author Guillermo Sandoval
+ * @author Jose Tejada
  */
-public class sdfdf {
+public class Operaciones {
     
+    public Operaciones(int implementacion){
+        
+    }
 }
