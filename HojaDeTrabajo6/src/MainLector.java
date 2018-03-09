@@ -3,10 +3,15 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -19,14 +24,13 @@ import java.util.Scanner;
  * @author Jose Tejada
  */
 public class MainLector {
-       public static void main(String[] arg) {
-      File archivo = null;
+    public void leerYEnviar(Map<String,String> mapaEnviar){
+        File archivo = null;
       FileReader fr = null;
       BufferedReader br = null;
-      Map<String,String> miHash;
-      MapFactory miFC= new MapFactory();
-Scanner entrada = new Scanner(System.in);
-      try {
+      
+   
+         try {
          // Apertura del fichero y creacion de BufferedReader para poder
          // hacer una lectura comoda (disponer del metodo readLine()).
          fr= new FileReader("cards_desc.txt");
@@ -41,14 +45,10 @@ Scanner entrada = new Scanner(System.in);
          while((linea=br.readLine())!=null){
              posicion=linea.indexOf("|");
              Key=linea.substring(0, posicion);
-             Value=linea.substring(posicion+1, linea.length());
-             
+             Value=linea.substring(posicion+1, linea.length());  
+             mapaEnviar.put(Key, Value);
          }
-         
-     
-           
-         
-        
+         Operaciones.setMapa(mapaEnviar);
       }
       catch(IOException e){
       }finally{
@@ -62,6 +62,16 @@ Scanner entrada = new Scanner(System.in);
          }catch (IOException e2){ 
          }
       }
+    }
+   
+       public static void main(String[] arg) {
+      
+      Map<String,String> mapaEnviar;
+     MainLector main= new MainLector();
+     Operaciones MiOperacion = null;
+     MapFactory miFC= new MapFactory();
+Scanner entrada = new Scanner(System.in);
+    
           
     System.out.println("indique el tipo de implementacion que desea utilizar\n");
     System.out.println("1.HashMap \n 2.TreeMap \n 3.LinkedHashMap \n");
@@ -74,22 +84,20 @@ Scanner entrada = new Scanner(System.in);
         try{
             
             if(opcion1==1){
-            
-            miHash=miFC.getImplementacion(opcion1);
                 
-                
+                mapaEnviar=miFC.getImplementacion(opcion1);
+                main.leerYEnviar(mapaEnviar);
+               
             }
             if(opcion1==2){
                 
-               miHash=miFC.getImplementacion(opcion1); 
-                
-                
+                mapaEnviar=miFC.getImplementacion(opcion1);
+                main.leerYEnviar(mapaEnviar);
             }
             if(opcion1==3){
-             
-              miHash=miFC.getImplementacion(opcion1);  
-                
-                
+                 
+                mapaEnviar=miFC.getImplementacion(opcion1);
+                main.leerYEnviar(mapaEnviar);
             }
         int opcion2;
         System.out.println("1. Agregar una carta a la colección del usuario. Para esto el usuario ingresa el nombre de la carta que desea agregar a la misma.\n"
@@ -98,15 +106,19 @@ Scanner entrada = new Scanner(System.in);
         +"4. Mostrar el nombre, tipo y cantidad de cada carta que el usuario tiene en su colección, ordenadas por tipo.\n"
         +"5. Mostrar el nombre y tipo de todas las cartas existentes.\n"
         +"6. Mostrar el nombre y tipo de todas las cartas existentes, ordenadas por tipo.");
+      
         opcionS = entrada.nextLine();
         opcion2 = Integer.parseInt(opcionS);
             if(opcion2==1){
-                
+               System.out.println("OPCION 1");
+               Operaciones.agregarCarta("Texas Spell", "Hechizo");
             }
             if(opcion2==2){
-                
+                System.out.println("OPCION 2");
+                System.out.println("EL VALOR DE LA CLAVE INGRESADA ES : "+Operaciones.getValorClave("Absorb Fusion"));
             }
             if(opcion2==3){
+               Operaciones.imprimirInciso3();
                 
             }
             if(opcion2==4){
