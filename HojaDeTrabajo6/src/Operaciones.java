@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -75,7 +75,6 @@ public class Operaciones {
            
             System.out.println("ERROR: CARTA NO INGRESADA, Tipo no encontrado y el nombre ya existe");
        }
-       
        }
    
    public static String getValorClave(String Key){
@@ -90,19 +89,33 @@ public class Operaciones {
     while(it.hasNext()){
       String key = it.next();
       System.out.println("Nombre Carta: " + key + " -> Tipo: " + Operaciones.mapaOp.get(key));
-        if (Operaciones.mapaOp.get(key).equals("Monstruo")) {
-            monstruo++;
-        }
-        else if (Operaciones.mapaOp.get(key).equals("Hechizo")) {
-            hechizo++;
-        }
-        else if (Operaciones.mapaOp.get(key).equals("Trampa")) {
-            trampa++;
-        }
+           switch (Operaciones.mapaOp.get(key)) {
+               case "Monstruo":
+                   monstruo++;
+                   break;
+               case "Hechizo":
+                   hechizo++;
+                   break;
+               case "Trampa":
+                   trampa++;
+                   break;
+               default:
+                   break;
+           }
     }
        System.out.println("TOTAL MONSTRUO: "+monstruo + " TOTAL HECHIZOS: "+hechizo + " TOTAL TRAMPAS: "+ trampa);
    }
+   
+   public static void imprimirCartas(){
+       System.out.println("TODAS LAS CARTAS: ");
+        Iterator<String> it = Operaciones.mapaOp.keySet().iterator();
+        while(it.hasNext()){
+          String key = it.next();
+          System.out.println("Clave: " + key + " -> Valor: " + Operaciones.mapaOp.get(key));
+        }
+   }
 }
+
 
     
 

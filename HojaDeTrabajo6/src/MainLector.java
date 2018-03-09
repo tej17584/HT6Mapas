@@ -75,6 +75,7 @@ Scanner entrada = new Scanner(System.in);
           
     System.out.println("indique el tipo de implementacion que desea utilizar\n");
     System.out.println("1.HashMap \n 2.TreeMap \n 3.LinkedHashMap \n");
+    
     int opcion1 = 0;
     String opcionS;
     boolean continuar = true;
@@ -125,7 +126,7 @@ Scanner entrada = new Scanner(System.in);
                 
             }
             if(opcion2==5){
-                
+                Operaciones.imprimirCartas();
             }
             if(opcion2==6){
                 

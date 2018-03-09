@@ -19,7 +19,7 @@ public class MapFactory {
     public Map<String,String> getImplementacion(int implementacion){
         switch (implementacion) {
             case 1:
-                System.out.println("USASTE HASMAP");
+                System.out.println("USASTE HASHMAP");
                 return new HashMap<>();
             case 2:
                 System.out.println("USASTE TREEMAP");
