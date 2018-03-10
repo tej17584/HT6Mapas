@@ -1,18 +1,15 @@
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import javax.swing.JOptionPane;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
- *
+ * Clase de Operaciones para las selecciones del Usuario
  * @author Jose Tejada
+ * @author Guillermo Sandoval
+ * @version 1.0
  */
 public class Operaciones {
    static   Map<String,String> mapaOp;
@@ -115,9 +112,3 @@ public class Operaciones {
         }
    }
 }
-
-
-    
-
-
-
